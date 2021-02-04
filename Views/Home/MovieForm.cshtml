@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Movie Form";
+}
+
+@model Assignment_3.Models.MovieFormModel
+
+<div>
+    <p>Welcome to the movie form. Please enter your info below:</p>
+
+    <form asp-action="MovieForm" method="post" >
+
+        <label for="category" asp-for="category">Category:</label><br>
+        <input type="text" id="category" asp-for="category"><br>
+
+        <label for="title" asp-for="title">Title:</label><br>
+        <input type="text" id="title" asp-for="title"><br>
+
+        <label for="year" asp-for="year">Year: </label><br>
+        <input type="text" id="year" asp-for="year"><br>
+
+        <label for="director" asp-for="director">Director: </label><br>
+        <input type="text" id="director" asp-for="director"><br>
+
+        <!-- Dropdown menu: -->
+        <label for="rating" asp-for="rating">Rating: </label><br>
+        <select name="rating" id="rating" asp-for="rating">
+            <option value="">Choose one</option>
+            <option value="g">G</option>
+            <option value="pg">PG</option>
+            <option value="pg13">PG-13</option>
+            <option value="r">R</option>
+        </select>
+        <br />
+
+        <label for="edited" asp-for="edited">Edited: </label><br>
+        <select asp-for="edited">
+            <option value="">Select One</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <br />
+
+
+        <label for="lentto" asp-for="lentto">Lent to: </label><br>
+        <input type="text" id="lentto" asp-for="lentto"><br />
+
+        <label for="notes" asp-for="notes">Notes: </label><br>
+        <input type="text" id="notes" asp-for="notes"><br />
+
+        <br><br>
+
+        <input type="submit" value="Submit" name="submitButton" id="submitButton">
+
+    </form>
+    <div asp-validation-summary="All"></div>
+
+</div>
