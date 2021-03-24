@@ -12,21 +12,21 @@
 
     <form asp-action="MovieForm" method="post" >
 
-        <label for="category" asp-for="category">Category:</label><br>
-        <input type="text" id="category" asp-for="category"><br>
+        <label for="category" asp-for="Category">Category:</label><br>
+        <input type="text" id="category" asp-for="Category"><br>
 
-        <label for="title" asp-for="title">Title:</label><br>
-        <input type="text" id="title" asp-for="title"><br>
+        <label for="title" asp-for="Title">Title:</label><br>
+        <input type="text" id="title" asp-for="Title"><br>
 
-        <label for="year" asp-for="year">Year: </label><br>
-        <input type="text" id="year" asp-for="year"><br>
+        <label for="year" asp-for="Year">Year: </label><br>
+        <input type="text" id="year" asp-for="Year"><br>
 
-        <label for="director" asp-for="director">Director: </label><br>
-        <input type="text" id="director" asp-for="director"><br>
+        <label for="director" asp-for="Director">Director: </label><br>
+        <input type="text" id="director" asp-for="Director"><br>
 
         <!-- Dropdown menu: -->
-        <label for="rating" asp-for="rating">Rating: </label><br>
-        <select name="rating" id="rating" asp-for="rating">
+        <label for="rating" asp-for="Rating">Rating: </label><br>
+        <select name="rating" id="rating" asp-for="Rating">
             <option value="">Choose one</option>
             <option value="g">G</option>
             <option value="pg">PG</option>
@@ -35,8 +35,8 @@
         </select>
         <br />
 
-        <label for="edited" asp-for="edited">Edited: </label><br>
-        <select asp-for="edited">
+        <label for="edited" asp-for="Edited">Edited: </label><br>
+        <select asp-for="Edited">
             <option value="">Select One</option>
             <option value="true">Yes</option>
             <option value="false">No</option>
@@ -44,11 +44,11 @@
         <br />
 
 
-        <label for="lentto" asp-for="lentto">Lent to: </label><br>
-        <input type="text" id="lentto" asp-for="lentto"><br />
+        <label for="lentto" asp-for="Lentto">Lent to: </label><br>
+        <input type="text" id="lentto" asp-for="Lentto"><br />
 
-        <label for="notes" asp-for="notes">Notes: </label><br>
-        <input type="text" id="notes" asp-for="notes"><br />
+        <label for="notes" asp-for="Notes">Notes: </label><br>
+        <input type="text" id="notes" asp-for="Notes"><br />
 
         <br><br>
 

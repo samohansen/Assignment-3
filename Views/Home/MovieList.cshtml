@@ -5,13 +5,13 @@
     ViewData["Title"] = "Movie List";
 }
 
-@model IEnumerable<Assignment_3.Models.MovieFormModel>
+@model IEnumerable<MovieFormModel>
 
 <div>
     <p>Welcome. Below is the list of movies that have been entered:</p>
 
-    <table>
-        <thead>
+    <table class="table-bordered">
+        <thead class="d-xl-table-row">
             <tr>
                 <th>Category</th>
                 <th>Title</th>
@@ -24,17 +24,17 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (Assignment_3.Models.MovieFormModel x in Model)
+            @foreach (var x in Model)
             {
-                <tr>
-                    <td>@x.category</td>
-                    <td>@x.title</td>
-                    <td>@x.year</td>
-                    <td>@x.director</td>
-                    <td>@x.rating</td>
-                    <td>@x.edited</td>
-                    <td>@x.lentto</td>
-                    <td>@x.notes</td>
+                <tr class="d-table-row">
+                    <td>@x.Category</td>
+                    <td>@x.Title</td>
+                    <td>@x.Year</td>
+                    <td>@x.Director</td>
+                    <td>@x.Rating</td>
+                    <td>@x.Edited</td>
+                    <td>@x.Lentto</td>
+                    <td>@x.Notes</td>
                 </tr>
 
             }

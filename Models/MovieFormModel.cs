@@ -9,28 +9,28 @@ namespace Assignment_3.Models
     public class MovieFormModel
     {
         [Required]
-        public string category { get; set; }
+        public string Category { get; set; }
+        [Required][Key]
+        public string Title { get; set; }
         [Required]
-        public string title { get; set; }
+        public string Year { get; set; }
         [Required]
-        public string year { get; set; }
-        [Required]
-        public string director { get; set; }
+        public string Director { get; set; }
 
 
         // Dropdown menu
         [Required]
-        public string rating { get; set; }
+        public string Rating { get; set; }
 
         // Optional below here:
         // True/False or yes/no
-        public bool edited { get; set; }
+        public bool Edited { get; set; }
 
 
-        public string lentto { get; set; }
+        public string Lentto { get; set; }
 
         [StringLength(25)]
-        public string notes { get; set; }
+        public string Notes { get; set; }
         
-    }
+    } 
 }

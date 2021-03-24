@@ -1,6 +1,8 @@
+using Assignment_3.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,9 +15,10 @@ namespace Assignment_3
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        // Constructor method of objects of type Startup
+        public Startup(IConfiguration config)
         {
-            Configuration = configuration;
+            Configuration = config;
         }
 
         public IConfiguration Configuration { get; }
@@ -24,6 +27,12 @@ namespace Assignment_3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // Use Db Context service
+            services.AddDbContext<MovieFormContext>(options =>
+            {
+                options.UseSqlite(Configuration["ConnectionStrings:MovieFormConnection"]);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

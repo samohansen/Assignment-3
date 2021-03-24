@@ -11,12 +11,18 @@ namespace Assignment_3.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+        private MovieFormContext context { get; set; }
+        public HomeController(MovieFormContext con)
         {
-            _logger = logger;
+            context = con;
         }
+
 
         public IActionResult Index()
         {
@@ -39,7 +45,8 @@ namespace Assignment_3.Controllers
 
         public IActionResult MovieList()
         {
-            return View(TempStorage.Movies.Where(r => r.title.ToLower() != "independence day"));
+            // Return data stored in the MovieFormModel database
+            return View(context.Movies);
         }
 
         [HttpGet]
@@ -49,13 +56,18 @@ namespace Assignment_3.Controllers
         }
 
 
-        // POST Method:
+        // POST Method: Commit to Database
         [HttpPost]
-        public IActionResult MovieForm(MovieFormModel appResponse)
+        public IActionResult MovieForm(MovieFormModel submission)
         {
-            TempStorage.AddMovie(appResponse);
-            Debug.WriteLine("Title: " + appResponse.title);
-            return View("Confirmation", appResponse);
+            if (ModelState.IsValid)
+            {
+                context.Movies.Add(submission);
+                context.SaveChanges();
+            }
+            //TempStorage.AddMovie(appResponse);
+            //Debug.WriteLine("Title: " + appResponse.Title);
+            return View("Confirmation");
         }
 
 
